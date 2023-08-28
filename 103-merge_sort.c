@@ -19,26 +19,6 @@ free(temp_array);
 }
 
 /**
-* merge_sort_recursive - recursive function that merge sorts an array
-* @temp: temporary array for merging
-* @array: array to merge sort
-* @left: index of the left element
-* @right: index of the right element
-*/
-void merge_sort_recursive(int *temp, int *array, size_t left, size_t right)
-{
-size_t middle;
-
-if (right - left > 1)
-{
-middle = (right - left) / 2 + left;
-merge_sort_recursive(temp, array, left, middle);
-merge_sort_recursive(temp, array, middle, right);
-merge_subarray(temp, array, left, middle, right);
-}
-}
-
-/**
 * merge_subarray - merges subarrays
 * @temp: temporary array for merging
 * @array: array to merge
@@ -66,4 +46,24 @@ temp[k++] = array[j++];
 
 for (k = left, i = 0; k < right; k++)
 array[k] = temp[i++];
+}
+
+/**
+* merge_sort_recursive - recursive function that merge sorts an array
+* @temp: temporary array for merging
+* @array: array to merge sort
+* @left: index of the left element
+* @right: index of the right element
+*/
+void merge_sort_recursive(int *temp, int *array, size_t left, size_t right)
+{
+size_t middle;
+
+if (right - left > 1)
+{
+middle = (right - left) / 2 + left;
+merge_sort_recursive(temp, array, left, middle);
+merge_sort_recursive(temp, array, middle, right);
+merge_subarray(temp, array, left, middle, right);
+}
 }
