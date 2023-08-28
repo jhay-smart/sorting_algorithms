@@ -46,10 +46,9 @@ sift_down(array, size, largest, heap_size);
 */
 void heap_sort(int *array, size_t size)
 {
+size_t i;
 if (!array || size < 2)
 return;
-
-size_t i;
 
 for (i = size / 2; i != 0; i--)
 {
